@@ -59,6 +59,10 @@ public class SentiWordNetSentimentAnalyzer extends IPlugin<Message, Message, Voi
         return PLUGIN_NAME;
     }
 
+    @Override public IPlugin<Message, Message, VoidConfig> getInstance() {
+        return new SentiWordNetSentimentAnalyzer();
+    }
+
     @Override public VoidConfig getNewParameter() {
         return new VoidConfig();
     }
