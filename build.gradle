@@ -17,6 +17,7 @@
 plugins {
     id 'java'
     id 'maven'
+    id "com.github.frapontillo.switchdependencies" version "0.0.1-alpha.0"
 }
 
 sourceCompatibility = 1.8
@@ -32,6 +33,16 @@ repositories {
 }
 
 dependencies {
-    compile 'com.github.frapontillo:crowd-pulse-sentiment:0.0.1'
-    compile group: 'commons-io', name: 'commons-io', version: '2.4'
+    compile 'commons-io:commons-io:2.4'
+}
+
+switchDependencies {
+    develop {
+        truthy = {
+            compile project(':crowd-pulse-sentiment')
+        }
+        falsy = {
+            compile 'com.github.frapontillo:crowd-pulse-sentiment:0.0.1'
+        }
+    }
 }
