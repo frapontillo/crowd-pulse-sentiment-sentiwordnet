@@ -87,7 +87,7 @@ public class SentiWordNetSentimentAnalyzer extends IPlugin<Message, Message, Voi
                 if (lemmatizedTokens > 0) {
                     message.setSentiment(totalScore / lemmatizedTokens);
                 } else {
-                    message.setSentiment(0);
+                    message.setSentiment(null);
                 }
                 return message;
             }
